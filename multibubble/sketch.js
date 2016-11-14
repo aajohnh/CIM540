@@ -3,6 +3,7 @@ var bubbleImg;
 
 var multiBubbles = [];
 
+var whatever;
 function setup() {
   createCanvas(400, 400);
   bubbleImg = loadImage("assets/bubble.png");
