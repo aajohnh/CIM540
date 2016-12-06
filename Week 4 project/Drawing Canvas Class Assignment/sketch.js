@@ -9,6 +9,7 @@ var boundary4 = 0;
 var boundary5 = 0;
 var boundary6 = 0;
 
+
 var r,g,b;
 
 var buttonSize = 100;
@@ -60,7 +61,7 @@ function draw(){
   rect(boundary5,topBoundary,buttonSize,buttonSize);
 
   if(mouseY > topBoundary && mouseY < bottomBoundary){
-    //console.log("color picker area");
+    console.log("color picker area");
     if(mouseX > boundary0 && mouseX < boundary1){
       //console.log("green");
       currentArea = ("green");
@@ -80,6 +81,7 @@ function draw(){
       //console.log("purple");
       currentArea = ("purple");
     }else if(mouseX, mouseY, 525, 75){
+      console.log("color circle");
       currentArea = ("randomColor");
     }
  }else{
@@ -102,6 +104,15 @@ function draw(){
 function mousePressed(){
   console.log(currentArea);
   
+     // Check if mouse is inside the circle
+  d = dist(mouseX, mouseY, 525, 75);
+  if (d < 100) {
+    // Pick new random color values
+    r = random(255);
+    g = random(255);
+    b = random(255);
+  }
+  
   if (currentArea == "green") {
     brushColor = "green";
   }else if (currentArea == "red"){
@@ -116,20 +127,13 @@ function mousePressed(){
     brushSize--;
     if(brushSize <= 1){
       brushSize = 1;
-    }
-  else if (currentArea == "var d"){
-    brushColor = "var r,g,b";
-  }  
+  }
+  }else if (currentArea == "d"){
+    brushColor = "randomColor";
+    
   }
   else{
     brushColor = "white";
   }
-   // Check if mouse is inside the circle
-  var d = dist(mouseX, mouseY, 525, 75);
-  if (d < 100) {
-    // Pick new random color values
-    r = random(255);
-    g = random(255);
-    b = random(255);
-  }
+
 }
